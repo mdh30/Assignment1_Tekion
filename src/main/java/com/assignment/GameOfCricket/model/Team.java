@@ -1,26 +1,14 @@
 package com.assignment.GameOfCricket.model;
 
+import java.util.HashMap;
+
 public class Team {
 
     int teamRuns;
-    int numOfPlayers = 11;
-    public Team teamName;
-    Team[] players = new Player[numOfPlayers];
 
-    //for making team of 11 players
-//    public Team[] generateTeam(){
-//        this.teamName = teamName;
-//        for(int i=0;i<numOfPlayers;i++){
-//            players[i] = new Player();
-//        }
-//        return players ;
-//    }
-
-    public int playInning(){
+    public int playInning(boolean first,HashMap<Integer,Player> ATeam, HashMap<Integer,Player> BTeam){
         CricketGame game = new CricketGame();
-        teamRuns = game.teamScore();
+        teamRuns = game.generateTeamScore(first,ATeam,BTeam);
         return teamRuns;
-
     }
-
 }

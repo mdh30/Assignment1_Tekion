@@ -1,44 +1,39 @@
 package com.assignment.GameOfCricket.model;
 
+import java.util.HashMap;
+
 public class Match {
 
-    Team teamA;
-    Team teamB;
-    int runsTeamA;
-    int runsTeamB;
+    Team teamA,teamB;
+    public int runsTeamA,runsTeamB;
+    public HashMap<Integer,Player> ATeam = new HashMap<>();
+    public HashMap<Integer,Player> BTeam = new HashMap<>();
+
     public Match(){
         teamA = new Team();
         teamB = new Team();
     }
 
     public void startMatch(){
-        runsTeamA = teamA.playInning();
-        runsTeamB = teamB.playInning();
-        System.out.println(runsTeamA+" "+runsTeamB);
+        teamA.playInning(true,ATeam,BTeam);
+        runsTeamA = CricketGame.teamRuns;
+        teamB.playInning(false,BTeam,ATeam);
+        runsTeamB = CricketGame.teamRuns;
     }
 
     public String finishMatch(){
-        runsTeamA = teamA.teamRuns;
-        runsTeamB = teamB.teamRuns;
         String result;
         if(runsTeamA!=runsTeamB) {
             if (runsTeamA > runsTeamB) {
-                result = "Team A won";
-                return result;
+                result = "Team A won.";
             }
             else {
-                result = "Team B won";
-                return result;
+                result = "Team B won.";
             }
         }
         else{
-            return "It's a Draw.";
+            result = "It's a Draw.";
         }
-
+        return result;
     }
-
-
-
-
-
 }
