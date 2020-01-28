@@ -1,14 +1,12 @@
 package com.assignment.GameOfCricket.model;
 
-import java.util.ArrayList;
-
 public class ScoreCard {
     String matchResult;
     int TeamAruns,TeamBruns;
 
-    ArrayList<Player> TeamA,TeamB;
+    Player[] TeamA,TeamB;
 
-    public ScoreCard(String matchResult, int teamAruns, int teamBruns, ArrayList<Player> teamA, ArrayList<Player> teamB) {
+    public ScoreCard(String matchResult, int teamAruns, int teamBruns, Player[] teamA, Player[] teamB) {
         this.matchResult = matchResult;
         TeamAruns = teamAruns;
         TeamBruns = teamBruns;
@@ -28,11 +26,11 @@ public class ScoreCard {
         return TeamBruns;
     }
 
-    public ArrayList<Player> getTeamA() {
+    public Player[] getTeamA() {
         return TeamA;
     }
 
-    public ArrayList<Player> getTeamB() {
+    public Player[] getTeamB() {
         return TeamB;
     }
 }

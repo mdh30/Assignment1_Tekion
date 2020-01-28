@@ -1,7 +1,9 @@
 package com.assignment.GameOfCricket.model;
 
-public class Player extends Team{
+public class Player{
 
+    private String playingRole;
+    private int playerRating;
     private int score;
     private int ballsPlayed;
     private int boundaries;
@@ -9,6 +11,8 @@ public class Player extends Team{
     private int runsGiven = 0;
     private int wicketsTaken = 0;
     private int maidenOvers = 0;
+
+
 
     public void setScore(int scores){
         this.score = scores;
@@ -40,4 +44,15 @@ public class Player extends Team{
 
     public int getBoundaries(){return boundaries;}
 
+    public void setPlayingRole(String playingRole){ this.playingRole = playingRole;}
+
+    public String getPlayingRole(){ return playingRole;}
+
+    public int getPlayerRating() {
+        return playerRating;
+    }
+
+    public void setPlayerRating(int playerRating) {
+        this.playerRating = playerRating;
+    }
 }

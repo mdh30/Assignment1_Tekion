@@ -1,23 +1,22 @@
 package com.assignment.GameOfCricket.model;
 
-import java.util.HashMap;
-
 public class Match {
 
-    Team teamA,teamB;
     public int runsTeamA,runsTeamB;
-    public HashMap<Integer,Player> ATeam = new HashMap<>();
-    public HashMap<Integer,Player> BTeam = new HashMap<>();
 
+    Team teams;
     public Match(){
-        teamA = new Team();
-        teamB = new Team();
+        teams = new Team();
     }
 
     public void startMatch(){
-        teamA.playInning(true,ATeam,BTeam);
+        teams.initialisePlayers(Team.Ateam);
+        teams.initialisePlayers(Team.Bteam);
+        teams.setPlayersRole(Team.Ateam);
+        teams.playInning(true,Team.Ateam,Team.Bteam);
         runsTeamA = CricketGame.teamRuns;
-        teamB.playInning(false,BTeam,ATeam);
+        teams.setPlayersRole(Team.Bteam);
+        teams.playInning(false,Team.Bteam,Team.Ateam);
         runsTeamB = CricketGame.teamRuns;
     }
 
